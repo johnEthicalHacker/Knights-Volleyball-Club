@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Knights Volleyball Club</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">Knights</div>
+      <button class="menu-toggle" id="abrirMenu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <ul class="nav-links">
+      <li class="nav-item active"><a href="#inicio">Inicio</a></li>
+      <li class="nav-item"><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+      <li class="nav-item"><a href="#equipo">Equipo</a></li>
+      <li class="nav-item"><a href="#contacto">Contáctanos</a></li>
+      <div class="underline"></div>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="menuOverlay">
+    <div class="sidebar-glass" id="sidebar-glass">
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-nosotros">Sobre Nosotros</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#contacto">Contáctanos</a>
+    </div>
+  </div>
+
+  <!-- Sección 1: Inicio -->
+  <section id="inicio" class="intro">
+    <div class="intro-content">
+      <div class="texto-intro">
+        <h1 class="animated-title">KNIGHTS VOLLEYBALL CLUB</h1>
+        <p class="animated-subtitle">DIOS COMO CENTRO. PROVOCANDO CAMBIOS</p>
+        <p class="animated-subtitle">MATEO 9:37</p>
+      </div>
+      <img src="images/logo.png" alt="Logo del club" class="floating-logo" />
+    </div>
+  </section>
+
+  <!-- Sección 2: Sobre Nosotros -->
+  <section id="sobre-nosotros" class="info">
+    <h2 class="titulo-seccion">Sobre Nosotros</h2>
+    <div class="puntos-grid">
+      <div class="punto izquierda">
+        <h3>Ubicación</h3>
+        <p>Cancha Escuela Miguel F. Santiago Echegaray</p>
+        <p>Camuy, Puerto Rico</p>
+      </div>
+      <div class="punto derecha">
+        <h3>Horario</h3>
+        <p><strong>Lunes, Miércoles</strong></p>
+        <p>5:30 – 7:30 pm</p>
+        <p><strong>Viernes</strong></p>
+        <p>3:00 – 5:00 pm</p>
+      </div>
+      <div class="punto izquierda">
+        <h3>Visión</h3>
+        <p>Somos un club que comparte el deseo y la pasión por el deporte que practicamos. Tenemos como meta construir jugadores con alto nivel de juego, disciplinados y con valores. Deseamos proveer un entorno saludable, confiable y con los recursos necesarios para que nuestros jugadores puedan explotar su potencial. Nuestra objetivo es claro: promover el voleibol en nuestro pueblo Camuyano y ayudar a los jóvenes a destacarse en la cancha y más allá de las líneas de juego.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sección 3: Equipo 17U masculino -->
+  <section id="equipo" class="equipo">
+    <h2 class="titulo-seccion">Equipo</h2>
+    <h2 class="subtitulo-seccion">Equipo 17U Masculino</h2>
+    <div class="jugadores">
+      <div class="contenedor">
+        <!-- Tarjeta del jugador -->
+        <div class="tarjeta" onclick="abrirDetalle(this)"
+          data-nombre="Fabián López Rodríguez"
+          data-posicion="#3 - Esquina"
+          data-edad="17 años"
+          data-estatura="5'11"
+          data-posiciones="Opuesto, Central"
+          data-grado="11"
+          data-graduacion="Clase 2026"
+          style="background-image: url('jugadores/fabian.jpg');">
+        </div>
+
+        <!-- Tarjeta del jugador -->
+        <div class="tarjeta" onclick="abrirDetalle(this)"
+          data-nombre="Ángel Rodríguez Rodríguez"
+          data-posicion="#12 - Esquina"
+          data-edad="17 años"
+          data-estatura="5'8"
+          data-posiciones="Esquina"
+          data-grado="11"
+          data-graduacion="Clase 2026"
+          style="background-image: url('jugadores/angel.jpg');">
+        </div>
+
+        <!-- Tarjeta del jugador -->
+        <div class="tarjeta" onclick="abrirDetalle(this)"
+          data-nombre="Kenneth Alicea Miranda"
+          data-posicion="#20 - Central"
+          data-edad="17 años"
+          data-estatura="6'2"
+          data-posiciones="Central"
+          data-grado="11"
+          data-graduacion="Clase 2026"
+          style="background-image: url('jugadores/kenneth.jpg');">
+        </div>
+
+        <!-- Tarjeta del jugador -->
+        <div class="tarjeta" onclick="abrirDetalle(this)"
+          data-nombre="Wyant Mercado Romero"
+          data-posicion="#22 - Central"
+          data-edad="17 años"
+          data-estatura="6'0"
+          data-posiciones="Central"
+          data-grado="11"
+          data-graduacion="Clase 2026"
+          style="background-image: url('jugadores/wyant.jpg');">
+        </div>
+
+        <!-- Tarjeta del jugador -->
+        <div class="tarjeta" onclick="abrirDetalle(this)"
+          data-nombre="Miguel Cuellar Bonilla"
+          data-posicion="#25 - Acomodo"
+          data-edad="15 años"
+          data-estatura="5'8"
+          data-posiciones="Acomodo"
+          data-grado="10"
+          data-graduacion="Clase 2027"
+          style="background-image: url('jugadores/miguel.jpg');">
+        </div>
+
+        <!-- Tarjeta del jugador -->
+        <div class="tarjeta" onclick="abrirDetalle(this)"
+          data-nombre="Jayden Padilla Rosado"
+          data-posicion="#4 - Líbero"
+          data-edad="17 años"
+          data-estatura="5'4"
+          data-posiciones="Acomodador"
+          data-grado="11"
+          data-graduacion="Clase 2026"
+          style="background-image: url('jugadores/jayden.jpg');">
+        </div>
+
+        <!-- Tarjeta del jugador -->
+        <div class="tarjeta" onclick="abrirDetalle(this)"
+          data-nombre="Byron Figueroa Rivera"
+          data-posicion="#7 - Opuesto"
+          data-edad="17 años"
+          data-estatura="5'10"
+          data-posiciones="Opuesto"
+          data-grado="11"
+          data-graduacion="Clase 2026"
+          style="background-image: url('jugadores/byron.jpg');">
+        </div>
+
+        <!-- Tarjeta del jugador -->
+        <div class="tarjeta" onclick="abrirDetalle(this)"
+          data-nombre="Gadiel Rodríguez Rodríguez"
+          data-posicion="#10 - Esquina"
+          data-edad="15 años"
+          data-estatura="5'8"
+          data-posiciones="Opuesto"
+          data-grado="9"
+          data-graduacion="Clase 2028"
+          style="background-image: url('jugadores/gadiel.jpg');">
+        </div>
+
+        <!-- Tarjeta del jugador -->
+        <div class="tarjeta" onclick="abrirDetalle(this)"
+          data-nombre="Francisco González Canino"
+          data-posicion="#19 - Esquina"
+          data-edad="14 años"
+          data-estatura="5'8"
+          data-posiciones="Esquina"
+          data-grado="9"
+          data-graduacion="Clase 2028"
+          style="background-image: url('jugadores/francisco.jpg');">
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Jugador -->
+    <div id="modal-jugador" class="modal-jugador">
+      <div class="modal-content-jugador">
+        <span class="cerrar-modal" onclick="cerrarDetalle()">✖</span>
+        <div class="modal-info">
+          <h2 id="modal-nombre"></h2>
+          <p id="modal-posicion"></p>
+          <p><strong>Edad:</strong> <span id="modal-edad"></span></p>
+          <p><strong>Estatura:</strong> <span id="modal-estatura"></span></p>
+          <p><strong>Otras posiciones:</strong> <span id="modal-posiciones"></span></p>
+          <p><strong>Grado:</strong> <span id="modal-grado"></span></p>
+          <p><strong>Clase graduanda:</strong> <span id="modal-graduacion"></span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contacto" class="footer">
+    <h2>Contáctanos</h2>
+    <p>Email: knightsvolleyballclubcamuy@gmail.com<br>Teléfono: 787-566-4497</p>
+    <div class="redes-sociales">
+      <a href="https://www.instagram.com/knightsvolleyclub/" target="_blank" aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="https://www.facebook.com/61560745271418/about/?_rdr" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook"></i>
+      </a>
+    </div>
+    <p>© 2025 Knights Volleyball Club</p>
+  </footer>
+
+  <!-- Overlay -->
+  <div class="overlay"></div>
+  <canvas id="rayCanvas"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>

@@ -872,12 +872,14 @@ footer {
 
         /* Responsive: en pantallas pequeñas */
         @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-
             .container {
                 gap: 15px;
+            }
+
+            .puntos-grid {
+                padding: 1rem;
+                flex-direction: column; /* <--- esto es CLAVE */
+                gap: 2.3rem;
             }
 
             .punto {
@@ -886,6 +888,11 @@ footer {
                 margin: 0;
                 padding: 20px;
                 border-radius: 12px;
+            }
+
+            .punto.izquierda,
+            .punto.derecha {
+                margin-right: 0;
             }
 
             .punto h3 {

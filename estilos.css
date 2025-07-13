@@ -5,10 +5,53 @@ html, body {
   padding: 0;
   height: 100%;
   width: 100%;
-  background-color: #111;
   font-family: 'Playfair Display', serif;
   color: #fff;
   overflow-x: hidden;
+  transition: background-image 0.5s ease;
+  background-size: cover;
+  background-position: center;
+}
+
+.fondo-activo {
+  position: relative;
+  z-index: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.fondo-activo::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* oscurece el fondo */
+  z-index: -1;
+}
+
+.slider img {
+  width: 100px;
+  height: auto;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  margin: 10px;
+  transition: all 0.3s ease;
+  opacity: 0.4; /* Se ven más suaves y no distraen tanto */
+}
+
+.slider img:hover {
+  border: 2px solid #ac9362;
+}
+
+.bg-selector {
+  width: 120px;
+  height: 70px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: transform 0.3s, border 0.3s;
+  border: 2px solid transparent;
 }
 
 /* Asegura que el canvas cubre todo */
@@ -41,7 +84,6 @@ section {
 
 
 .intro {
-  background-color: #111;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -95,47 +137,6 @@ section {
   animation: float 2s ease-in-out infinite;
 }
 
-@media (max-width: 768px) {
-
-  .intro {
-    padding: 30px 15px;
-  }
-
-  .intro-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .texto-intro {
-    flex: unset;
-    width: 100%;
-  }
-
-  .animated-title{
-    font-size: 3rem;
-    text-align: center;
-  }
-
-  .animated-subtitle{
-    text-align: center;
-  }
-}
-
-/* Para móviles */
-@media (max-width: 480px) {
-  .intro {
-    padding: 20px 10px;
-  }
-}
-
-/* Para pantallas muy pequeñas */
-@media (max-width: 350px) {
-  .intro {
-    padding: 15px 8px;
-  }
-}
-
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(30px); }
   to { opacity: 1; transform: translateY(0); }
@@ -148,11 +149,10 @@ section {
 }
 
 .equipo {
-  background-color: #111;
   border: none !important;
   box-shadow: none !important;
   margin: 0 !important;
-  padding-top: 5rem; /* si quieres conservar algo de espacio interno */
+  padding-top: 2rem; /* si quieres conservar algo de espacio interno */
   padding-bottom: 5rem;
   min-height: 100vh;
   width: 100vw;
@@ -170,40 +170,28 @@ section {
   height: 270px;
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   display: flex;
   align-items: end;
   justify-content: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 8px 16px #ac9362;
   transition: transform 0.3s ease;
   position: relative;
   color: white;
   text-align: center;
-}
-
-/* Para móviles - 3 tarjetas por línea */
-@media (max-width: 768px) {
-  .tarjeta {
-    width: calc(33.333% - 10px); /* 3 tarjetas por línea con espacio */
-    height: 160px; /* Más pequeñas en altura */
-    margin: 5px;
-  }
-}
-
-/* Para pantallas muy pequeñas */
-@media (max-width: 480px) {
-  .tarjeta {
-    width: calc(33.333% - 8px);
-    height: 140px;
-    margin: 4px;
-    border-radius: 8px;
-  }
+  padding: 1rem;
 }
 
 .tarjeta:hover {
-  transform: scale(1.05);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px #ac9362;
+}
+
+.tarjeta img {
+  width: 100%;
+  height: auto;
 }
 
 /* Fondo oscuro con texto encima */
@@ -247,7 +235,6 @@ section {
 }
 
 .modal-contenido {
-  background: #111;
   padding: 20px;
   border-radius: 15px;
   width: 90%;
@@ -296,7 +283,6 @@ section {
 }
 
 footer {
-  background-color: #111;
   color: white;
   text-align: center;
   padding: 1rem;
@@ -339,7 +325,6 @@ footer {
 
 /* Navbar general */
 .navbar {
-  background-color: #111;
   color: white;
   padding: 15px 10%;
   position: sticky; /* o fixed si prefieres */
@@ -347,6 +332,7 @@ footer {
   z-index: 100; /* más alto que las sombras */
   border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* borde sutil */
   box-shadow: 0 2px 5px rgba(0,0,0,0.5); /* sombra para destacarla */
+  background-color: #111;
 }
 
 .nav-container {
@@ -409,7 +395,6 @@ footer {
 /* para moviles 
         /* Menú toggle elegante */
         .menu-toggle {
-            background: #111;
             border: none;
             cursor: pointer;
             padding: 12px;
@@ -421,6 +406,7 @@ footer {
             width: 52px;
             height: 52px;
             position: relative;
+            background-color: #111; 
         }
 
         .menu-toggle::before {
@@ -526,65 +512,6 @@ footer {
     transform: translateX(10px);
 }
 
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-   
-    .sidebar-demo {
-        width: 100%;
-        max-width: 300px;
-        margin-bottom: 50px;
-    }
-}
-
-/* En pantallas grandes, ocultar completamente el overlay */
-@media (min-width: 769px) {
-    #menuOverlay {
-        display: none !important;
-    }
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-
-  .desktop-menu {
-    display: none;
-  }
-
-  .navbar {
-    background-color: #111;
-  }
-  
-  .nav-links {
-    display: none;
-    flex-direction: column; /* Para que estén alineados horizontalmente */
-    background-color: #1b1b1b;
-    position: absolute;
-    top: 60px;
-    right: 10%;
-    width: auto; /* ✅ Ajuste: para que no se expanda innecesariamente */
-    border-radius: 8px;
-    padding: 10px; /* ✅ Menos espacio alrededor */
-    gap: 5px; /* ✅ Espaciado más estrecho entre enlaces */
-  }
-
-
-  .nav-links li {
-    padding: 5px 15px;
-  }
-
-  .nav-links.show {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-}
-
-
 .contenedor {
   display: flex;
   justify-content: center;
@@ -592,31 +519,6 @@ footer {
   gap: 1.25rem;
   padding: 1.25rem;
 }
-
-/* Para pantallas pequeñas, forzar 2 por fila */
-@media (max-width: 600px) {
-  .contenedor {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.tarjeta {
-  border-radius: 12px;
-  box-shadow: 0 8px 16px #ac9362;
-  padding: 1rem;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.tarjeta:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px #ac9362;
-}
-
-.tarjeta img {
-  width: 100%;
-  height: auto;
-}
-
 
 .modal-jugador {
   position: fixed;
@@ -675,65 +577,6 @@ footer {
   }
 }
 
-/* Para móviles */
-@media (max-width: 768px) {
-  .modal-jugador {
-    padding: 30px;
-  }
-  
-  .modal-content-jugador {
-    width: 80%;
-    max-height: 45vh;
-    max-width: 350px;
-  }
-
-  .modal-info h2 {
-    font-size: 20px;
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-  
-  .modal-info p {
-    font-size: 15px;
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-}
-
-/* Responsive extra para pantallas muy pequeñas */
-@media (max-width: 350px) {
- 
-  .modal-jugador {
-    padding: 20px;
-  }
-
-  .modal-content-jugador {
-    padding: 15px;
-    width: 75%;
-    max-height: 55vh;
-    max-width: 300px;
-    margin: 10px auto;
-  }
-  
-  .modal-info h2 {
-    font-size: 16px;
-    margin-bottom: 8px;
-    line-height: 1.2;
-  }
-  
-  .modal-info p {
-    font-size: 12px;
-    margin-bottom: 6px;
-    line-height: 1.3;
-  }
-  
-  .modal-info {
-    gap: 8px; /* Si usas flexbox o grid */
-  }
-}
-
-
-
 .overlay {
   position: fixed;
   top: 0; 
@@ -773,7 +616,6 @@ footer {
 }
 
 .contenido-expandido {
-  background: #111;
   border-radius: 15px;
   max-width: 600px;
   width: 100%;
@@ -804,25 +646,124 @@ footer {
 }
 
 .info {
-  padding: 60px 20px;
-  background-color: #111;
+  padding: 20px 20px;
   color: #f5f5f5;
   font-family: 'Playfair Display', serif;
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
-.titulo-seccion {
-  font-family: 'Playfair Display', serif;
-  font-size: 4rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+.seccion-coach {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  background-color: #111;
+  box-shadow: 0 10px 35px rgba(172, 147, 98, 0.9);   /* 🌟 Sombra más intensa y brillante */
+  border: none;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  overflow: hidden; 
 }
 
-.titulo-seccion {
-  margin-top: -10px; /* o ajusta según lo que necesites */
+.seccion-coach:hover {
+  transform: translateY(-5px);
 }
 
+ .titulos-seccion {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 15px 20px;
+  font-size: 22px;
+  font-family: inherit;
+  background-color: #111;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.contenido-seccion {
+  text-align: left;
+  font-size: 17px;          /* ⬆️ Aumenta el tamaño del texto */
+  line-height: 1.7;         /* 🧘 Mejor lectura entre líneas */
+  color: white;
+  padding: 0px 20px;
+  background-color: #111;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.5s ease;
+}
+
+.seccion-coach.abierto .contenido-seccion {
+  max-height: 800px;
+  padding: 0px 20px;       /* ✅ Solo aparece cuando se abre */
+}
+
+
+.imagen-coach {
+  width: 180px;
+  height: 270px;
+  background-image: url('jugadores/john.jpg'); /* ✅ Tu imagen */
+  background-size: cover;       /* Que la imagen cubra todo el área */
+  background-position: center;  /* Centrada */
+  background-repeat: no-repeat; /* Evita repeticiones */
+  
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;   
+  justify-content: center;
+  padding: 1rem;
+  text-align: center;
+  
+  box-shadow: 0 8px 16px #ac9362;     /* Sombra dorada */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.contenido-coach {
+    flex: 1;
+}
+
+.nombre-coach {
+    color: #ac9362;
+    font-size: 35px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.info-coach {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 40px;
+  align-items: flex-start;
+  margin: 30px 0;
+}
+
+.lista-info-coach {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-info-coach li {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.lista-info-coach li:last-child {
+    border-bottom: none;
+}
+
+.lista-info-coach strong {
+    color: #ac9362;
+    font-weight: 600;
+    font-size: 20px;
+}
 
 .puntos-grid {
   display: flex;
@@ -834,7 +775,6 @@ footer {
 
 .punto {
   width: 48%; /* dos por fila */
-  background-color: #111;
   padding: 25px;
   box-shadow: 0 8px 16px #ac9362;
   transition: transform 0.3s ease;
@@ -870,75 +810,6 @@ footer {
 }
 
 
-        /* Responsive: en pantallas pequeñas */
-        @media (max-width: 768px) {
-            .container {
-                gap: 15px;
-            }
-
-            .puntos-grid {
-                padding: 1rem;
-                flex-direction: column; /* <--- esto es CLAVE */
-                gap: 2.3rem;
-            }
-
-            .punto {
-                width: 100%;
-                min-width: unset;
-                margin: 0;
-                padding: 20px;
-                border-radius: 12px;
-            }
-
-            .punto.izquierda,
-            .punto.derecha {
-                margin-right: 0;
-            }
-
-            .punto h3 {
-                font-size: 1.5em;
-                margin-bottom: 12px;
-                text-align:center;
-            }
-
-            .punto p {
-                font-size: 1.1em;
-                margin-bottom: 8px;
-                line-height: 1.5;
-                text-align:center;
-            }
-
-            .punto p strong {
-                font-size: 1.2em;
-                text-align:center;
-            }
-        }
-
-        /* Para pantallas muy pequeñas */
-        @media (max-width: 480px) {
-            body {
-                padding: 5px;
-            }
-
-            .punto {
-                padding: 15px;
-                border-radius: 10px;
-                text-align:center;
-            }
-
-            .punto h3 {
-                font-size: 1.8em;
-                margin-bottom: 10px;
-                text-align:center;
-            }
-
-            .punto p {
-                font-size: 1.1em;
-                line-height: 1.4;
-                text-align: center;
-            }
-        }
-
 .floating-logo {
     width: 60vw;
   }
@@ -946,6 +817,8 @@ footer {
 .titulo-seccion {
     font-size: 2.5rem;
     text-align: center;
+    padding: 10px 20px;
+    margin-top: 0;
   }
 
 .subtitulo-seccion{
@@ -961,6 +834,254 @@ footer {
   font-weight: bold;
   color: #666;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .intro {
+    padding: 20px 20px;
+  }
+
+  .intro-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .texto-intro {
+    flex: unset;
+    width: 100%;
+  }
+
+  .animated-title{
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  .animated-subtitle{
+    text-align: center;
+  }
+
+  .tarjeta {
+    width: calc(33.333% - 10px); /* 3 tarjetas por línea con espacio */
+    height: 160px; /* Más pequeñas en altura */
+    margin: 5px;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+   
+  .sidebar-demo {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 50px;
+  }
+
+  .modal-jugador {
+    padding: 30px;
+  }
+  
+  .modal-content-jugador {
+    width: 80%;
+    max-height: 45vh;
+    max-width: 350px;
+  }
+
+  .modal-info h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  
+  .modal-info p {
+    font-size: 15px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+
+  .info-coach {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      flex-wrap: nowrap;
+  }
+
+
+  .imagen-coach {
+    height: 200px;
+    width: calc(50% - 10px);
+    margin: 0 auto; /* centra horizontalmente si el ancho no es 100% */
+  }
+
+  .titulos-seccion {
+    font-size: 18px;   /* texto más pequeño en móvil */
+  }
+
+  .contenido-seccion {
+    font-size: 15px;
+  }
+    
+  .contenido-coach {
+    padding-top: 25px;
+  }
+    
+    .nombre-coach {
+        font-size: 30px;
+    }
+
+    .container {
+        gap: 15px;
+    }
+
+    .puntos-grid {
+        padding: 1rem;
+        flex-direction: column; /* <--- esto es CLAVE */
+        gap: 2.3rem;
+    }
+
+    .punto {
+        width: 100%;
+        min-width: unset;
+        margin: 0;
+        padding: 20px;
+        border-radius: 12px;
+    }
+
+    punto.izquierda,
+    .punto.derecha {
+        margin-right: 0;
+    }
+
+    .punto h3 {
+        font-size: 1.5em;
+        margin-bottom: 12px;
+        text-align:center;
+    }
+
+    .punto p {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+        line-height: 1.5;
+        text-align:center;
+    }
+
+    .punto p strong {
+        font-size: 1.2em;
+        text-align:center;
+    }        
+}
+
+/* Para pantallas pequeñas, forzar 2 por fila */
+@media (max-width: 600px) {
+  .contenedor {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Para móviles */
+@media (max-width: 480px) {
+  .intro {
+    padding: 20px 20px;
+  }
+
+  .tarjeta {
+    width: calc(33.333% - 8px);
+    height: 140px;
+    margin: 4px;
+    border-radius: 8px;
+  }
+
+  .desktop-menu {
+    display: none;
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column; /* Para que estén alineados horizontalmente */
+    background-color: #1b1b1b;
+    position: absolute;
+    top: 60px;
+    right: 10%;
+    width: auto; /* ✅ Ajuste: para que no se expanda innecesariamente */
+    border-radius: 8px;
+    padding: 10px; /* ✅ Menos espacio alrededor */
+    gap: 5px; /* ✅ Espaciado más estrecho entre enlaces */
+  }
+
+  .nav-links li {
+    padding: 5px 15px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nombre-coach {
+    font-size: 30px;
+  }
+
+  .lista-info-coach li {
+    font-size: 17px;
+  }
+
+  .modal-jugador {
+    padding: 20px;
+  }
+
+  .modal-content-jugador {
+    padding: 15px;
+    width: 75%;
+    max-height: 55vh;
+    max-width: 300px;
+    margin: 10px auto;
+  }
+  
+  .modal-info h2 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  
+  .modal-info p {
+    font-size: 12px;
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  
+  .modal-info {
+    gap: 8px; /* Si usas flexbox o grid */
+  }
+
+  body {
+    padding: 5px;
+  }
+
+  .imagen-coach{
+    width: calc(50% - 8px);
+    height: 180px;
+  }
+  .punto {
+    padding: 15px;
+    border-radius: 10px;
+    text-align:center;
+  }
+
+  .punto h3 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    text-align:center;
+  }
+
+  .punto p {
+    font-size: 1.1em;
+    line-height: 1.4;
+    text-align: center;
+  }
 }
 
 /* Meta viewport en HTML */

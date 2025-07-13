@@ -380,6 +380,31 @@ document.addEventListener('DOMContentLoaded', () => {
   new ResponsiveMenu();
 });
 
+/**
+ * Acordeón para mostrar secciones del entrenador
+ */
+class CoachAccordion {
+  static init() {
+    const secciones = document.querySelectorAll('.seccion-coach');
+
+    secciones.forEach(seccion => {
+      const boton = seccion.querySelector('.titulos-seccion');
+      boton.addEventListener('click', () => {
+        // Si ya está abierta, la cerramos
+        if (seccion.classList.contains('abierto')) {
+          seccion.classList.remove('abierto');
+        } else {
+          // Cierra todas las secciones
+          secciones.forEach(s => s.classList.remove('abierto'));
+          // Abre la que fue clickeada
+          seccion.classList.add('abierto');
+        }
+      });
+    });
+  }
+}
+
+
 // =============================================
 // 🚀 MÓDULO: APLICACIÓN PRINCIPAL
 // =============================================
@@ -423,6 +448,8 @@ class App {
     UIEffects.initAnimatedTitle();
     Navbar.init();
     ScrollController.init();
+    BackgroundSelector.init(); 
+    CoachAccordion.init(); 
   }
 
   exposeGlobalFunctions() {
@@ -434,6 +461,35 @@ class App {
     window.cerrarDetalle = () => {
       this.components.playerModal?.close();
     };
+  }
+}
+
+// =============================================
+// 🎨 MÓDULO: CAMBIO DE FONDO POR IMAGEN
+// =============================================
+
+/**
+ * Permite cambiar el fondo del <body> al hacer clic en imágenes con clase .bg-selector
+ */
+class BackgroundSelector {
+  static init() {
+    // Fondo por defecto color #111
+    document.body.style.backgroundColor = "#111";
+    document.body.style.backgroundImage = "none";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.transition = "background-image 0.6s ease-in-out, background-color 0.6s ease-in-out";
+
+    const imagenes = document.querySelectorAll(".bg-selector");
+    if (!imagenes.length) return;
+
+    imagenes.forEach(img => {
+      img.addEventListener("click", () => {
+        const nuevaImagen = img.getAttribute("src");
+        document.body.style.backgroundImage = `url('${nuevaImagen}')`;
+        document.body.style.backgroundColor = "transparent"; // para que se vea la imagen
+      });
+    });
   }
 }
 

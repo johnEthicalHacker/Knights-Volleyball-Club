@@ -1179,7 +1179,7 @@ footer {
   .contenido-seccion {
     font-size: 15px;
   }
-    
+
   .contenido-coach {
     padding-top: 25px;
   }
@@ -1241,6 +1241,10 @@ footer {
 @media (max-width: 480px) {
   .intro {
     padding: 20px 20px;
+  }
+
+  .seccion-coach.abierto .contenido-seccion {
+    max-height: 900px; 
   }
 
   .tarjeta {
@@ -1322,7 +1326,6 @@ footer {
   .imagen-coach{
     width: calc(50% - 8px);
     height: 180px;
-
   }
   
   .punto {

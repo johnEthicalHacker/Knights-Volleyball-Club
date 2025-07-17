@@ -1,5 +1,11 @@
+/* ==========================================================================
+   Imports
+   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
+/* ==========================================================================
+   Base styles and reset
+   ========================================================================== */
 html, body {
   margin: 0;
   padding: 0;
@@ -13,12 +19,280 @@ html, body {
   background-position: center;
 }
 
+/* ==========================================================================
+   Layout & Background
+   ========================================================================== */
 .fondo-activo {
   position: relative;
   z-index: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+.fondo-activo::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+/* ==========================================================================
+   Header & Navigation
+   ========================================================================== */
+.navbar {
+  color: white;
+  padding: 15px 10%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+  background-color: #111;
+}
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-item {
+  position: relative;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  font-weight: 500;
+  color: #333;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #ac9362;
+}
+
+/* ==========================================================================
+   Section Styles
+   ========================================================================== */
+section {
+  padding: 5rem 1.25rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  scroll-margin-top: 80px;
+  box-sizing: border-box;
+  margin: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  width: 100vw;
+}
+
+.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px;
+}
+
+.intro-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   Card Components
+   ========================================================================== */
+.tarjeta {
+  width: 180px;
+  height: 270px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  box-shadow: 0 8px 16px #ac9362;
+  transition: transform 0.3s ease;
+  position: relative;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+.tarjeta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px #ac9362;
+}
+
+/* ==========================================================================
+   Modal Components
+   ========================================================================== */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-contenido {
+  padding: 20px;
+  border-radius: 15px;
+  width: 90%;
+  max-width: 500px;
+  text-align: left;
+  position: relative;
+  animation: zoomIn 0.4s ease;
+  box-shadow: 0 8px 16px #ac9362;
+}
+
+/* ==========================================================================
+   Coach Section
+   ========================================================================== */
+.seccion-coach {
+  margin-bottom: 20px;
+  border-radius: 12px;
+  max-width: 600px;
+  background-color: #111;
+  box-shadow: 0 10px 35px rgba(172, 147, 98, 0.9);
+  border: none;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.seccion-coach:hover {
+  transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+footer {
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer .redes-sociales {
+  margin: 10px 0;
+}
+
+.footer .redes-sociales a {
+  color: #fff;
+  font-size: 1.75rem;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+  display: inline-block;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes zoomIn {
+  from {transform: scale(0.8);}
+  to {transform: scale(1);}
+}
+
+@keyframes brutalBounce {
+  0% { transform: scale(1) rotate(0deg) translateY(0); }
+  30% { transform: scale(1.2) rotate(-10deg) translateY(-10px); }
+  50% { transform: scale(1.1) rotate(10deg) translateY(5px); }
+  70% { transform: scale(1.15) rotate(-5deg) translateY(-5px); }
+  100% { transform: scale(1) rotate(0deg) translateY(0); }
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+@media (max-width: 768px) {
+  .intro {
+    padding: 20px 20px;
+  }
+
+  .intro-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .texto-intro {
+    flex: unset;
+    width: 100%;
+  }
+
+  .tarjeta {
+    width: calc(33.333% - 10px);
+    height: 160px;
+    margin: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .desktop-menu {
+    display: none;
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #1b1b1b;
+    position: absolute;
+    top: 60px;
+    right: 10%;
+    width: auto;
+    border-radius: 8px;
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .tarjeta {
+    width: calc(33.333% - 8px);
+    height: 140px;
+    margin: 4px;
+    border-radius: 8px;
+  }
 }
 
 .fondo-activo::before {
@@ -392,58 +666,58 @@ footer {
   display: flex;
 }
 
-/* para moviles 
-        /* Menú toggle elegante */
-        .menu-toggle {
-            border: none;
-            cursor: pointer;
-            padding: 12px;
-            border-radius: 16px;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            width: 52px;
-            height: 52px;
-            position: relative;
-            background-color: #111; 
-        }
+/* para moviles */
+.menu-toggle {
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 16px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  position: relative;
+  background-color: #111; 
+}
 
-        .menu-toggle::before {
-            content: '';
-            position: absolute;
-            top: -1px;
-            left: -1px;
-            right: -1px;
-            bottom: -1px;
-            background: linear-gradient(135deg, 
-                rgba(172, 147, 98, 0.3) 0%, 
-                rgba(255, 255, 255, 0.1) 50%, 
-                rgba(172, 147, 98, 0.2) 100%);
-            border-radius: 17px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+.menu-toggle::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(135deg, 
+              rgba(172, 147, 98, 0.3) 0%, 
+              rgba(255, 255, 255, 0.1) 50%, 
+              rgba(172, 147, 98, 0.2) 100%);
+  border-radius: 17px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
 
-        .menu-toggle:active {
-            transform: translateY(0) scale(0.98);
-            transition: all 0.1s ease;
-        }
+.menu-toggle:active {
+  transform: translateY(0) scale(0.98);
+  transition: all 0.1s ease;
+}
 
-        .menu-toggle i {
-            font-size: 20px;
-            background: linear-gradient(135deg, #ac9362 0%, #d4c49a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            transition: all 0.3s ease;
-        }
+.menu-toggle i {
+  font-size: 20px;
+  background: linear-gradient(135deg, #ac9362 0%, #d4c49a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
 
-        .menu-toggle:hover i {
-            transform: scale(1.1);
-            filter: drop-shadow(0 2px 4px rgba(172, 147, 98, 0.4));
-        }
+.menu-toggle:hover i {
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 4px rgba(172, 147, 98, 0.4));
+}
+
 /* Contenedor del overlay - ESTADO INICIAL OCULTO */
 #menuOverlay {
     position: fixed;
@@ -653,22 +927,6 @@ footer {
   margin: 0 auto;
 }
 
-.seccion-coach {
-  margin-bottom: 20px;
-  border-radius: 12px;
-  max-width: 600px;
-  background-color: #111;
-  box-shadow: 0 10px 35px rgba(172, 147, 98, 0.9);   /* 🌟 Sombra más intensa y brillante */
-  border: none;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  position: relative;
-  overflow: hidden; 
-}
-
-.seccion-coach:hover {
-  transform: translateY(-5px);
-}
-
  .titulos-seccion {
   display: block;
   width: 100%;
@@ -697,7 +955,7 @@ footer {
 
 .seccion-coach.abierto .contenido-seccion {
   max-height: 800px;
-  padding: 0px 20px;       /* ✅ Solo aparece cuando se abre */
+  padding: 0px 20px 10px;       /* ✅ Solo aparece cuando se abre */
 }
 
 
@@ -861,9 +1119,16 @@ footer {
     text-align: center;
   }
 
+  .imagen-coach {
+    width: 180px;
+    height: 260px;
+    margin: 5px auto;
+    display: block;
+  }
+
   .tarjeta {
     width: calc(33.333% - 10px); /* 3 tarjetas por línea con espacio */
-    height: 160px; /* Más pequeñas en altura */
+    height: 250px; /* Más pequeñas en altura */
     margin: 5px;
   }
 
@@ -905,13 +1170,6 @@ footer {
       text-align: center;
       padding: 20px;
       flex-wrap: nowrap;
-  }
-
-
-  .imagen-coach {
-    height: 200px;
-    width: calc(50% - 10px);
-    margin: 0 auto; /* centra horizontalmente si el ancho no es 100% */
   }
 
   .titulos-seccion {
@@ -1064,7 +1322,9 @@ footer {
   .imagen-coach{
     width: calc(50% - 8px);
     height: 180px;
+
   }
+  
   .punto {
     padding: 15px;
     border-radius: 10px;
@@ -1084,5 +1344,3 @@ footer {
   }
 }
 
-/* Meta viewport en HTML */
-/* <meta name="viewport" content="width=device-width, initial-scale=1.0"> */

@@ -948,7 +948,7 @@ footer {
 .imagen-coach {
   width: 180px;
   height: 270px;
-  background-image: url('jugadores/john.png'); /* ✅ Tu imagen */
+  background-image: url('jugadores/john.jpg'); /* ✅ Tu imagen */
   background-size: cover;       /* Que la imagen cubra todo el área */
   background-position: center;  /* Centrada */
   background-repeat: no-repeat; /* Evita repeticiones */

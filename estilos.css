@@ -89,7 +89,7 @@ html, body {
 }
 
 .nav-links li a:hover {
-  color: #ac9362;
+  color: #4598aa;
 }
 
 /* ==========================================================================
@@ -142,7 +142,7 @@ section {
   display: flex;
   align-items: end;
   justify-content: center;
-  box-shadow: 0 8px 16px #ac9362;
+  box-shadow: 0 8px 16px #8b8b8b;
   transition: transform 0.3s ease;
   position: relative;
   color: white;
@@ -152,7 +152,7 @@ section {
 
 .tarjeta:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px #ac9362;
+  box-shadow: 0 12px 24px #8b8b8b;
 }
 
 /* ==========================================================================
@@ -178,7 +178,7 @@ section {
   text-align: left;
   position: relative;
   animation: zoomIn 0.4s ease;
-  box-shadow: 0 8px 16px #ac9362;
+  box-shadow: 0 8px 16px #8b8b8b;
 }
 
 /* ==========================================================================
@@ -189,7 +189,7 @@ section {
   border-radius: 12px;
   max-width: 600px;
   background-color: #111;
-  box-shadow: 0 10px 35px rgba(172, 147, 98, 0.9);
+  box-shadow: 0 10px 20px #8b8b8b;
   border: none;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   position: relative;
@@ -215,12 +215,23 @@ footer {
 }
 
 .footer .redes-sociales a {
-  color: #fff;
+  color: #4598aa;
   font-size: 1.75rem;
   margin: 0 15px;
   transition: color 0.3s ease;
   display: inline-block;
 }
+
+.footer .redes-sociales a:hover {
+  animation: brutalBounce 0.8s ease both;
+}
+
+/* Hover azul dorado para los iconos de redes sociales */
+.redes-sociales a:hover i {
+    color: #4598aa; /* azul royale */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
 
 /* ==========================================================================
    Animations
@@ -315,7 +326,7 @@ footer {
 }
 
 .slider img:hover {
-  border: 2px solid #ac9362;
+  border: 2px solid #df3276;
 }
 
 .bg-selector {
@@ -393,7 +404,7 @@ section {
 .animated-subtitle {
   font-size: 1.5rem;
   text-align: center;
-  color: #ac9362;
+  color: #8b8b8b;
   margin-top: 1rem; /* ← Corregido */
   opacity: 0;
   animation: fadeInUp 2s ease-out forwards;
@@ -450,7 +461,7 @@ section {
   display: flex;
   align-items: end;
   justify-content: center;
-  box-shadow: 0 8px 16px #ac9362;
+  box-shadow: 0 8px 16px #8b8b8b;
   transition: transform 0.3s ease;
   position: relative;
   color: white;
@@ -460,7 +471,7 @@ section {
 
 .tarjeta:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 24px #ac9362;
+  box-shadow: 0 12px 24px #8b8b8b;
 }
 
 .tarjeta img {
@@ -516,7 +527,7 @@ section {
   text-align: left;
   position: relative;
   animation: zoomIn 0.4s ease;
-  box-shadow: 0 8px 16px #ac9362;
+  box-shadow: 0 8px 16px #8b8b8b;
 }
 
 .modal-contenido * {
@@ -573,29 +584,7 @@ footer {
   100% { transform: scale(1) rotate(0deg) translateY(0); }
 }
 
-.footer .redes-sociales {
-  margin: 10px 0;
-}
 
-.footer .redes-sociales a {
-  color: #fff;
-  font-size: 1.75rem;
-  margin: 0 15px;
-  transition: color 0.3s ease;
-  display: inline-block;
-}
-
-.footer .redes-sociales a:hover {
-  animation: brutalBounce 0.8s ease both;
-}
-
-.footer .redes-sociales a[aria-label="Instagram"]:hover {
-  color: #E4405F;
-}
-
-.footer .redes-sociales a[aria-label="Facebook"]:hover {
-  color: #1877F2;
-}
 
 /* Navbar general */
 .navbar {
@@ -644,7 +633,7 @@ footer {
   position: absolute;
   bottom: 0;
   height: 2px;
-  background-color: #ac9362;
+  background-color: #8b8b8b;
   width: 0;
   left: 0;
   transition: all 0.3s ease;
@@ -657,9 +646,6 @@ footer {
   transition: color 0.3s;
 }
 
-.nav-links li a:hover {
-  color: #ac9362;
-}
 
 /* Mostrar solo en pantallas grandes */
 .desktop-menu {
@@ -706,7 +692,7 @@ footer {
 
 .menu-toggle i {
   font-size: 20px;
-  background: linear-gradient(135deg, #ac9362 0%, #d4c49a 100%);
+  background: linear-gradient(135deg, #4598aa 0%, white 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -715,7 +701,7 @@ footer {
 
 .menu-toggle:hover i {
   transform: scale(1.1);
-  filter: drop-shadow(0 2px 4px rgba(172, 147, 98, 0.4));
+  filter: drop-shadow(0 2px 4px #bb5a96);
 }
 
 /* Contenedor del overlay - ESTADO INICIAL OCULTO */
@@ -962,7 +948,7 @@ footer {
 .imagen-coach {
   width: 180px;
   height: 270px;
-  background-image: url('jugadores/john.jpg'); /* ✅ Tu imagen */
+  background-image: url('jugadores/john.png'); /* ✅ Tu imagen */
   background-size: cover;       /* Que la imagen cubra todo el área */
   background-position: center;  /* Centrada */
   background-repeat: no-repeat; /* Evita repeticiones */
@@ -975,7 +961,7 @@ footer {
   padding: 1rem;
   text-align: center;
   
-  box-shadow: 0 8px 16px #ac9362;     /* Sombra dorada */
+  box-shadow: 0 8px 16px #8b8b8b;     /* Sombra dorada */
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
 }
@@ -985,7 +971,7 @@ footer {
 }
 
 .nombre-coach {
-    color: #ac9362;
+    color: #8b8b8b;
     font-size: 35px;
     font-weight: 700;
     margin-bottom: 20px;
@@ -1018,7 +1004,7 @@ footer {
 }
 
 .lista-info-coach strong {
-    color: #ac9362;
+    color: #8b8b8b;
     font-weight: 600;
     font-size: 20px;
 }
@@ -1034,7 +1020,7 @@ footer {
 .punto {
   width: 48%; /* dos por fila */
   padding: 25px;
-  box-shadow: 0 8px 16px #ac9362;
+  box-shadow: 0 8px 16px #8b8b8b;
   transition: transform 0.3s ease;
   box-sizing: border-box;
   flex: 1 1 45%; /* Ocupa aprox. la mitad del ancho, con espacio entre */
@@ -1056,7 +1042,7 @@ footer {
 }
 
 .punto h3 {
-  color: #ac9362;
+  color: #bb5a96;
   font-size: 1.8rem;
   margin-bottom: 10px;
 }
@@ -1082,6 +1068,7 @@ footer {
 .subtitulo-seccion{
   font-size: 1.3rem;
   text-align: center;
+  color: #bb5a96; 
 }
 
 .cerrar {
